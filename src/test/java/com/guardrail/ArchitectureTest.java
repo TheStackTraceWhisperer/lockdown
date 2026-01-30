@@ -14,7 +14,7 @@ final class ArchitectureTest {
     static void noSystemOutExceptMainAndTests(JavaClasses classes) {
         noClasses()
             .that().doNotHaveSimpleName("Main")
-            .and().haveSimpleNameNotEndingWith("Test")
+            .and().haveNameNotMatching(".*(Test|IT|ITCase)$")
             .should().accessClassesThat().haveFullyQualifiedName("java.io.PrintStream")
             .check(classes);
     }
