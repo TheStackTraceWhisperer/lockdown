@@ -253,6 +253,11 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.11</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*Main.class</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <goals><goal>prepare-agent</goal></goals>
@@ -297,6 +302,9 @@
                     <targetTests>
                         <param>com.guardrail.*</param>
                     </targetTests>
+                    <excludedMethods>
+                        <excludedMethod>main</excludedMethod>
+                    </excludedMethods>
                 </configuration>
                 <executions>
                     <execution>
