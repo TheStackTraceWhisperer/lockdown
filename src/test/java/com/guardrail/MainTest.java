@@ -30,7 +30,7 @@ class MainTest {
     }
 
     @Test
-    void mainShouldExecuteWithoutException() {
+    void mainShouldPrintGreeting() {
         // Capture System.out to verify main() output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;

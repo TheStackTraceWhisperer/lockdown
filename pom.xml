@@ -297,9 +297,6 @@
                     <targetTests>
                         <param>com.guardrail.*</param>
                     </targetTests>
-                    <excludedMethods>
-                        <excludedMethod>info</excludedMethod>
-                    </excludedMethods>
                 </configuration>
                 <executions>
                     <execution>

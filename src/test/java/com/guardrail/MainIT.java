@@ -1,10 +1,13 @@
 package com.guardrail;
 
 import org.junit.jupiter.api.Test;
-import org.testcontainers.junit.jupiter.Testcontainers;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Testcontainers
+/**
+ * Integration test for Main class.
+ * Note: This is a simple integration test without containers.
+ * Testcontainers annotation removed as no containers are used.
+ */
 class MainIT {
 
     @Test

@@ -22,7 +22,7 @@ public final class Main {
     }
 
     public static void main(String[] args) {
-        // Verification for Chloe Ana and Emma Rose
+        // Greet Chloe and Emma
         LOGGER.info("System starting...");
         System.out.println(greet("Chloe and Emma"));
     }
