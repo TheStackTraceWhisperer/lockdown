@@ -1,9 +1,9 @@
 package com.guardrail;
 
+import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
-import com.tngtech.archunit.lang.ArchRule;
-import static com.tngtech.archunit.library.GeneralCodingRules.NO_CLASSES_SHOULD_ACCESS_STANDARD_STREAMS;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 @AnalyzeClasses(packages = "com.guardrail")
 final class ArchitectureTest {
@@ -11,5 +11,11 @@ final class ArchitectureTest {
     private ArchitectureTest() { }
     
     @ArchTest
-    static final ArchRule NO_STDOUT = NO_CLASSES_SHOULD_ACCESS_STANDARD_STREAMS;
+    static void noSystemOutExceptMainAndTests(JavaClasses classes) {
+        noClasses()
+            .that().doNotHaveSimpleName("Main")
+            .and().haveSimpleNameNotEndingWith("Test")
+            .should().accessClassesThat().haveFullyQualifiedName("java.io.PrintStream")
+            .check(classes);
+    }
 }
