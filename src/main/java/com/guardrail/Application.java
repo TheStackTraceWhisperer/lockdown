@@ -10,8 +10,8 @@ public final class Application implements Runnable {
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
     private final Greeter greeter;
 
-    public Application(Greeter greeter) {
-        this.greeter = greeter;
+    public Application() {
+        this.greeter = new Greeter();
     }
 
     @Override

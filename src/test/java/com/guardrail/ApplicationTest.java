@@ -7,8 +7,7 @@ class ApplicationTest {
 
     @Test
     void runShouldNotThrowException() {
-        Greeter greeter = new Greeter();
-        Application app = new Application(greeter);
+        Application app = new Application();
         
         assertThatCode(app::run)
             .doesNotThrowAnyException();
