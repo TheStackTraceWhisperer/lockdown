@@ -17,6 +17,7 @@ public final class Application implements Runnable {
     @Override
     public void run() {
         LOGGER.info("System starting...");
-        System.out.println(greeter.greet("Chloe and Emma"));
+        String greeting = greeter.greet("Chloe and Emma");
+        LOGGER.info("Application completed with greeting: {}", greeting);
     }
 }

@@ -302,9 +302,6 @@
                     <targetTests>
                         <param>com.guardrail.*</param>
                     </targetTests>
-                    <excludedClasses>
-                        <excludedClass>com.guardrail.Application</excludedClass>
-                    </excludedClasses>
                     <excludedMethods>
                         <excludedMethod>main</excludedMethod>
                     </excludedMethods>
