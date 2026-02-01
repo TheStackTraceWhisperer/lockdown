@@ -5,6 +5,7 @@ on:
     branches: [ main, 'copilot/**' ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,7 +22,7 @@ jobs:
           cache: 'maven'
     
       - name: Build with Maven
-        run: mvn -B clean verify
+        run: ./mvnw -B -V -Dstyle.color=always clean verify
     
       - name: Upload test results
         if: always()
