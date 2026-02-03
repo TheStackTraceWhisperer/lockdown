@@ -18,7 +18,7 @@
         <logstash.version>8.0</logstash.version>
         <junit.version>5.10.2</junit.version>
         <assertj.version>3.27.7</assertj.version>
-        <archunit.version>1.2.1</archunit.version>
+        <archunit.version>1.4.1</archunit.version>
         <testcontainers.version>1.21.4</testcontainers.version>
         <error-prone.version>2.26.1</error-prone.version>
         <nullaway.version>0.10.24</nullaway.version>
