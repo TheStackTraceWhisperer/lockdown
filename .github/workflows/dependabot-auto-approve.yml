@@ -1,0 +1,60 @@
+name: Dependabot Auto-Approve
+
+on:
+  workflow_run:
+    workflows: ["Java CI"]
+    types:
+      - completed
+
+permissions:
+  pull-requests: write
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request'
+    steps:
+      - name: Get PR number and check if Dependabot
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pulls = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${context.payload.workflow_run.head_branch}`
+            });
+            
+            if (pulls.data.length === 0) {
+              core.info('No open PR found for this branch');
+              return;
+            }
+            
+            const pr = pulls.data[0];
+            const isDependabot = pr.user.login === 'dependabot[bot]';
+            
+            core.setOutput('number', pr.number);
+            core.setOutput('user', pr.user.login);
+            core.setOutput('is_dependabot', isDependabot);
+            
+            core.info(`Found PR #${pr.number} by ${pr.user.login}`);
+
+      - name: Approve PR
+        if: steps.pr.outputs.is_dependabot == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = ${{ steps.pr.outputs.number }};
+            
+            await github.rest.pulls.createReview({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              event: 'APPROVE',
+              body: '✅ Auto-approved by Dependabot Auto-Approve workflow after Java CI passed successfully.'
+            });
+            
+            core.info(`Approved PR #${prNumber}`);
