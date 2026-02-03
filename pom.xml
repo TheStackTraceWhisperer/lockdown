@@ -21,7 +21,7 @@
         <archunit.version>1.2.1</archunit.version>
         <testcontainers.version>1.19.7</testcontainers.version>
         <error-prone.version>2.26.1</error-prone.version>
-        <nullaway.version>0.10.24</nullaway.version>
+        <nullaway.version>0.13.1</nullaway.version>
         
         <jacoco.line.threshold>1.00</jacoco.line.threshold>
         <pitest.mutation.threshold>80</pitest.mutation.threshold>
