@@ -20,7 +20,7 @@
         <assertj.version>3.27.7</assertj.version>
         <archunit.version>1.2.1</archunit.version>
         <testcontainers.version>1.19.7</testcontainers.version>
-        <error-prone.version>2.26.1</error-prone.version>
+        <error-prone.version>2.46.0</error-prone.version>
         <nullaway.version>0.13.1</nullaway.version>
         
         <jacoco.line.threshold>1.00</jacoco.line.threshold>
@@ -117,6 +117,8 @@
                     <fork>true</fork>
                     <compilerArgs>
                         <arg>-XDcompilePolicy=simple</arg>
+                        <arg>-XDaddTypeAnnotationsToSymbol=true</arg>
+                        <arg>--should-stop=ifError=FLOW</arg>
                         <arg>-Xplugin:ErrorProne -Xep:NullAway:ERROR -XepOpt:NullAway:AnnotatedPackages=com.guardrail</arg>
                         <arg>-Xlint:all</arg>
                         <arg>-Werror</arg>
