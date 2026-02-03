@@ -20,6 +20,7 @@
         <exclude name="LongVariable"/>
         <exclude name="CommentDefaultAccessModifier"/>
         <exclude name="CallSuperInConstructor"/>
+        <exclude name="ShortClassName"/>
     </rule>
 
     <!-- Design -->

@@ -15,9 +15,9 @@ public final class Greeter {
      * @param name Name to greet (NullAway enforces non-null)
      * @return Greeting string
      */
-    public String greet(String name) {
+    public String greet(final String name) {
         Objects.requireNonNull(name, "Name cannot be null");
-        String greeting = "Hello, " + name + "!";
+        final String greeting = "Hello, " + name + "!";
         LOGGER.info("Generated greeting: {}", greeting);
         return greeting;
     }
