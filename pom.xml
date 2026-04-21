@@ -20,7 +20,7 @@
         <assertj.version>3.27.7</assertj.version>
         <error-prone.version>2.49.0</error-prone.version>
         <nullaway.version>0.13.3</nullaway.version>
-        <archunit.version>1.4.1</archunit.version>
+        <archunit.version>1.4.2</archunit.version>
         <testcontainers.version>1.21.4</testcontainers.version>
       
         <jacoco.line.threshold>1.00</jacoco.line.threshold>
